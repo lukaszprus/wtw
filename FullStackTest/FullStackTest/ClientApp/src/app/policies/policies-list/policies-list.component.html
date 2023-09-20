@@ -1,0 +1,39 @@
+<div class="table-responsive" *ngIf="policies?.length">
+  <table class="table table-striped">
+    <caption>Policies</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Number</th>
+        <th scope="col">Holder Name</th>
+        <th scope="col">Holder Age</th>
+        <th scope="col">Holder Gender</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let policy of policies; index as i">
+        <th scope="row">{{ i + 1 | number }}</th>
+        <td>
+          <a [routerLink]="policy.number.toString()">
+            {{ policy.number }}
+          </a>
+        </td>
+        <td>{{ policy.holder.name }}</td>
+        <td>{{ policy.holder.age }}</td>
+        <td>{{ policy.holder.gender }}</td>
+        <td>
+          <a [routerLink]="[policy.number, 'edit']" role="button" class="btn btn-secondary">Edit</a>
+          &nbsp;
+          <button (click)="delete.emit(policy.number)" type="button" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" *ngIf="policies?.length === 0">
+  <div class="card-body">
+    No items
+  </div>
+</div>

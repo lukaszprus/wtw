@@ -1,0 +1,105 @@
+<form [formGroup]="addEditForm" (ngSubmit)="addEditForm.valid ? onSubmit() : addEditForm.markAllAsTouched()">
+  <legend class="text-center">Policy</legend>
+
+  <fieldset>
+    <div class="row mb-3" data-test-number>
+      <label for="number" class="col-sm-4 col-form-label">Number&nbsp;*</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control" id="number" formControlName="number"
+          [class.is-valid]="number.valid && number.touched"
+          [class.is-invalid]="number.invalid && number.touched">
+
+        <ng-container *ngIf="number.invalid && number.touched && number.errors as errors">
+          <div *ngIf="errors['required']" class="invalid-feedback">
+            Required
+          </div>
+
+          <div *ngIf="errors['min']" class="invalid-feedback">
+            Number must be minimum 1
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset formGroupName="holder">
+    <div class="row mb-3" data-test-holderName>
+      <label for="holderName" class="col-sm-4 col-form-label">Holder Name&nbsp;*</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="holderName" formControlName="name"
+          [class.is-valid]="holderName.valid && holderName.touched"
+          [class.is-invalid]="holderName.invalid && holderName.touched">
+
+        <ng-container *ngIf="holderName.invalid && holderName.touched && holderName.errors as errors">
+          <div *ngIf="errors['required']" class="invalid-feedback">
+            Required
+          </div>
+
+          <div *ngIf="errors['minlength']" class="invalid-feedback">
+            Minimum 2 characters required
+          </div>
+
+          <div *ngIf="errors['maxlength']" class="invalid-feedback">
+            Maximum 30 characters allowed
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row mb-3" data-test-holderAge>
+      <label for="holderAge" class="col-sm-4 col-form-label">Holder Age&nbsp;*</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control" id="holderAge" formControlName="age"
+          [class.is-valid]="holderAge.valid && holderAge.touched"
+          [class.is-invalid]="holderAge.invalid && holderAge.touched">
+
+        <ng-container *ngIf="holderAge.invalid && holderAge.touched && holderAge.errors as errors">
+          <div *ngIf="errors['required']" class="invalid-feedback">
+            Required
+          </div>
+
+          <div *ngIf="errors['min']" class="invalid-feedback">
+            Number must be minimum 20
+          </div>
+
+          <div *ngIf="errors['max']" class="invalid-feedback">
+            Number must be maximum 200
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row mb-3" data-test-holderGender>
+      <label class="col-sm-4 col-form-label">Holder Gender&nbsp;*</label>
+      <div class="col-sm-8">
+        <div [class.is-valid]="holderGender.valid && holderGender.touched" [class.is-invalid]="holderGender.invalid && holderGender.touched" data-test-holderGenderInputWrapper>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" formControlName="gender" value="male">&nbsp;Male
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" formControlName="gender" value="female">&nbsp;Female
+            </label>
+          </div>
+        </div>
+
+        <ng-container *ngIf="holderGender.invalid && holderGender.touched && holderGender.errors as errors">
+          <div *ngIf="errors['required']" class="invalid-feedback">
+            Required
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary btn-block">
+      {{ label }}
+    </button>
+  </div>
+</form>
+
+<!-- <pre>{{ addEditForm.value | json }}</pre> -->

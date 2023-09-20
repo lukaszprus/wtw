@@ -1,0 +1,28 @@
+{
+  "policies": [
+    {
+      "number": 554252,
+      "holder": {
+        "name": "ggtg",
+        "age": 54,
+        "gender": "female"
+      }
+    },
+    {
+      "number": 2332,
+      "holder": {
+        "name": "fqfrq",
+        "age": 21,
+        "gender": "male"
+      }
+    },
+    {
+      "holder": {
+        "name": "gregr",
+        "age": 51,
+        "gender": "male"
+      },
+      "number": 542245
+    }
+  ]
+}

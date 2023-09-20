@@ -1,0 +1,6 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
+    <app-policy-add-edit-form label="Update" [value]="policy$ | async" (valueChange)="updatePolicy($event)" [disabledNumber]="true">
+    </app-policy-add-edit-form>
+  </div>
+</div>

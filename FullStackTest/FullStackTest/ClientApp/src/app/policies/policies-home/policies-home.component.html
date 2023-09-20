@@ -1,0 +1,9 @@
+<div class="row justify-content-md-center mb-5">
+  <div class="col-md-auto">
+    <app-policy-add-edit-form label="Add" (valueChange)="addPolicy($event)"></app-policy-add-edit-form>
+  </div>
+</div>
+
+<div class="row">
+  <app-policies-list [policies]="policies" (delete)="deletePolicy($event)"></app-policies-list>
+</div>

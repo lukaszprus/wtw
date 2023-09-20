@@ -1,1 +1,1 @@
-﻿Add your notes here:
+﻿json-server is being used to mock the API. It has a limitation where you cannot update the primary key (policy number) on PATCH, PUT requests. That's why the edit form in the frontend application has the number field disabled.
